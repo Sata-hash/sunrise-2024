@@ -1,6 +1,5 @@
-
-import Task from "@/model/Task";
-import { initialTasks } from "@/utils/TaskList";
+import Task from '@/model/Task';
+import { initialTasks } from '@/utils/TaskList';
 
 let tasks: Task[] = [...initialTasks];
 
@@ -9,7 +8,9 @@ export function initializeTasks() {
 }
 
 export function getActiveTasks(): Task[] {
-  return tasks.filter(task => !task.completed);
+  const minCompletedGroup = Math.min(...tasks.filter(task => task.completed).map(task => task.group), Infinity);
+  const maxIncompleteGroup = Math.min(...tasks.filter(task => !task.completed).map(task => task.group), minCompletedGroup + 1);
+  return tasks.filter(task => !task.completed && task.group <= maxIncompleteGroup);
 }
 
 export function getCompletedTasks(): Task[] {

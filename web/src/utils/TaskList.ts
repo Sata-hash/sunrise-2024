@@ -13,4 +13,6 @@ export const initialTasks: Task[] = [
   new Task(8, 'API Consumption', 'Consume an API in a project.', 'Intern', 4),
   new Task(9, 'Final Project', 'Complete the final project.', 'Intern', 4),
   new Task(10, 'Project Presentation', 'Present the final project.', 'Intern', 4),
+  new Task(11,'Demo Video','Present the working','Intern',4),
+  new Task(12,'Learn about NextJs','Present Learning','Intern',4)
 ];

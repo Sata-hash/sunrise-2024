@@ -9,11 +9,11 @@ export function initializeTasks() {
 }
 
 export function getActiveTasks(): Task[] {
-  return tasks.filter(task => !task.isCompleted);
+  return tasks.filter(task => !task.completed);
 }
 
 export function getCompletedTasks(): Task[] {
-  return tasks.filter(task => task.isCompleted);
+  return tasks.filter(task => task.completed);
 }
 
 export function getAllTasks(): Task[] {
@@ -23,7 +23,7 @@ export function getAllTasks(): Task[] {
 export function completeTask(taskTitle: string): void {
   const task = tasks.find(task => task.title === taskTitle);
   if (task) {
-    task.isCompleted = true;
+    task.completed = true;
   }
 }
 
@@ -34,7 +34,7 @@ export function createTask(title: string, description: string, persona: string, 
     description,
     persona,
     group,
-    isCompleted: false,
+    completed: false,
   };
   tasks.push(newTask);
 }
